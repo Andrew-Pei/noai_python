@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础语法 - Python基础学习网站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="八中logo.png" alt="八中logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="basics.html" class="active">基础语法</a></li>
+                <li><a href="data-types.html">数据类型</a></li>
+                <li><a href="control-flow.html">控制结构</a></li>
+                <li><a href="functions.html">函数与模块</a></li>
+                <li><a href="algorithms.html">常用算法</a></li>
+                <li><a href="exercises.html">练习题目</a></li>
+                <li><a href="requirements.html">考纲要求</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>基础语法</h1>
+            <p class="subtitle">Python编程基础</p>
+            <div class="hero-buttons">
+                <a href="index.html" class="btn btn-secondary">返回首页</a>
+                <a href="data-types.html" class="btn btn-primary">下一章：数据类型 →</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">📚 Python简介</h2>
+            <div class="content-card">
+                <p>Python是一种高级编程语言，具有简洁易读的语法。在NOAI竞赛中，Python是主要的编程工具。NOAI学术活动要求参与者具备最基本的Python编程能力，能够使用Python编写程序解决实际问题（例如简单数据处理、简单算法问题）。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">💬 注释</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 这是单行注释
+
+"""
+这是多行注释
+可以写多行
+用于解释复杂的代码逻辑
+"""
+
+# 注释的作用：
+# 1. 解释代码功能
+# 2. 标记待办事项
+# 3. 临时禁用代码</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">📝 变量与赋值</h2>
+            <div class="content-card">
+                <p>Python是动态类型语言，不需要声明变量类型，变量名区分大小写。</p>
+                <div class="code-block">
+                    <pre><code># 基本变量赋值
+name = "Python"          # 字符串
+age = 30                 # 整数
+price = 3.14             # 浮点数
+is_active = True         # 布尔值
+
+# 同时赋值多个变量
+a, b, c = 1, 2, 3
+
+# 变量交换（无需临时变量）
+x, y = 10, 20
+x, y = y, x  # x=20, y=10
+
+# 增量赋值
+count = 0
+count += 1  # count = count + 1
+count *= 2  # count = count * 2</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🖨️ 输入输出</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># print() 输出函数
+print("Hello, World!")
+print("Python", "编程", "学习")  # 多个参数，用空格分隔
+
+# 格式化输出
+name = "张三"
+age = 18
+print(f"我的名字是{name}，今年{age}岁")
+print("我的名字是{}，今年{}岁".format(name, age))
+
+# input() 输入函数（返回字符串）
+user_input = input("请输入你的名字: ")
+print(f"你输入了: {user_input}")
+
+# 输入数值类型转换（重要！）
+num_str = input("请输入一个数字: ")
+num = int(num_str)      # 转换为整数
+
+# sep和end参数
+print("Python", "编程", sep="-", end="!\n")</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">➕ 算术运算符</h2>
+            <div class="content-card">
+                <table class="data-table">
+                    <tr><th>运算符</th><th>说明</th><th>示例</th><th>结果</th></tr>
+                    <tr><td>+</td><td>加法</td><td>5 + 3</td><td>8</td></tr>
+                    <tr><td>-</td><td>减法</td><td>5 - 3</td><td>2</td></tr>
+                    <tr><td>*</td><td>乘法</td><td>5 * 3</td><td>15</td></tr>
+                    <tr><td>/</td><td>除法</td><td>5 / 3</td><td>1.666...</td></tr>
+                    <tr><td>//</td><td>整除</td><td>5 // 3</td><td>1</td></tr>
+                    <tr><td>%</td><td>取余</td><td>5 % 3</td><td>2</td></tr>
+                    <tr><td>**</td><td>幂运算</td><td>2 ** 3</td><td>8</td></tr>
+                </table>
+                <div class="code-block">
+                    <pre><code># 运算符优先级：** > * / // % > + -
+result = 2 + 3 * 4  # 14，先乘后加
+result = (2 + 3) * 4  # 20，括号优先
+
+# 取余运算的应用
+num = 17
+if num % 2 == 0:
+    print("偶数")
+else:
+    print("奇数")</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">⚖️ 关系运算符</h2>
+            <div class="content-card">
+                <p>用于比较两个值，返回True或False。</p>
+                <table class="data-table">
+                    <tr><th>运算符</th><th>说明</th><th>示例</th><th>结果</th></tr>
+                    <tr><td>==</td><td>等于</td><td>5 == 5</td><td>True</td></tr>
+                    <tr><td>!=</td><td>不等于</td><td>5 != 3</td><td>True</td></tr>
+                    <tr><td>></td><td>大于</td><td>5 > 3</td><td>True</td></tr>
+                    <tr><td><</td><td>小于</td><td>5 < 3</td><td>False</td></tr>
+                    <tr><td>>=</td><td>大于等于</td><td>5 >= 5</td><td>True</td></tr>
+                    <tr><td><=</td><td>小于等于</td><td>5 <= 3</td><td>False</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔗 逻辑运算符</h2>
+            <div class="content-card">
+                <table class="data-table">
+                    <tr><th>运算符</th><th>说明</th><th>示例</th><th>结果</th></tr>
+                    <tr><td>and</td><td>逻辑与</td><td>True and False</td><td>False</td></tr>
+                    <tr><td>or</td><td>逻辑或</td><td>True or False</td><td>True</td></tr>
+                    <tr><td>not</td><td>逻辑非</td><td>not True</td><td>False</td></tr>
+                </table>
+                <div class="code-block">
+                    <pre><code>age = 20
+score = 85
+
+if age >= 18 and score >= 60:
+    print("成年且及格")
+
+if age < 18 or score < 60:
+    print("未成年或不及格")</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔄 数据类型转换</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 转换为整数
+str_num = "123"
+num = int(str_num)  # 123
+
+# 转换为浮点数
+f = float("3.14")  # 3.14
+
+# 转换为字符串
+age_str = str(18)  # "18"
+
+# 转换为布尔值
+print(bool(0))      # False
+print(bool(1))      # True</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="btn btn-secondary">← 返回首页</a>
+            <a href="data-types.html" class="btn btn-primary">下一章：数据类型 →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Python基础学习网站 | NOAI备考指南</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

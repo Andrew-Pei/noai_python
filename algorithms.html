@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用算法 - Python基础学习网站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="八中logo.png" alt="八中logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="basics.html">基础语法</a></li>
+                <li><a href="data-types.html">数据类型</a></li>
+                <li><a href="control-flow.html">控制结构</a></li>
+                <li><a href="functions.html">函数与模块</a></li>
+                <li><a href="algorithms.html" class="active">常用算法</a></li>
+                <li><a href="exercises.html">练习题目</a></li>
+                <li><a href="requirements.html">考纲要求</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>常用算法</h1>
+            <p class="subtitle">排序与查找算法</p>
+            <div class="hero-buttons">
+                <a href="functions.html" class="btn btn-secondary">← 上一章</a>
+                <a href="exercises.html" class="btn btn-primary">下一章：练习题目 →</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">📊 排序算法 (Sorting)</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 使用内置函数排序
+nums = [3, 1, 4, 1, 5, 9, 2, 6]
+
+# sort() - 原地排序
+nums.sort()
+print(nums)  # [1, 1, 2, 3, 4, 5, 6, 9]
+
+# sorted() - 返回新列表
+nums = [3, 1, 4, 1, 5, 9, 2, 6]
+sorted_nums = sorted(nums)
+print(sorted_nums)
+
+# 降序排序
+nums.sort(reverse=True)
+print(nums)  # [9, 6, 5, 4, 3, 2, 1, 1]
+
+# 自定义排序
+students = [
+    {"name": "张三", "score": 85},
+    {"name": "李四", "score": 92},
+    {"name": "王五", "score": 78}
+]
+students.sort(key=lambda x: x["score"])</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔍 查找算法 (Searching)</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 线性查找
+def linear_search(arr, target):
+    for i, val in enumerate(arr):
+        if val == target:
+            return i
+    return -1
+
+nums = [3, 1, 4, 1, 5, 9, 2, 6]
+print(linear_search(nums, 5))  # 4
+
+# 二分查找（NOAI常考）
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] > target:
+            right = mid - 1
+        else:
+            left = mid + 1
+    
+    return -1
+
+sorted_nums = [1, 1, 2, 3, 4, 5, 6, 9]
+print(binary_search(sorted_nums, 5))  # 6
+
+# 使用in关键字
+print(5 in nums)  # True
+print(nums.index(5))  # 4</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">⏱️ 算法复杂度</h2>
+            <div class="content-card">
+                <table class="data-table">
+                    <tr><th>算法</th><th>时间复杂度</th><th>空间复杂度</th></tr>
+                    <tr><td>线性查找</td><td>O(n)</td><td>O(1)</td></tr>
+                    <tr><td>二分查找</td><td>O(log n)</td><td>O(1)</td></tr>
+                    <tr><td>冒泡排序</td><td>O(n²)</td><td>O(1)</td></tr>
+                    <tr><td>Python内置排序</td><td>O(n log n)</td><td>O(n)</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="functions.html" class="btn btn-secondary">← 上一章：函数与模块</a>
+            <a href="exercises.html" class="btn btn-primary">下一章：练习题目 →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Python基础学习网站 | NOAI备考指南</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

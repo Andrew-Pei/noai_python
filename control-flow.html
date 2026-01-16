@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制结构 - Python基础学习网站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="八中logo.png" alt="八中logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="basics.html">基础语法</a></li>
+                <li><a href="data-types.html">数据类型</a></li>
+                <li><a href="control-flow.html" class="active">控制结构</a></li>
+                <li><a href="functions.html">函数与模块</a></li>
+                <li><a href="algorithms.html">常用算法</a></li>
+                <li><a href="exercises.html">练习题目</a></li>
+                <li><a href="requirements.html">考纲要求</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>控制结构</h1>
+            <p class="subtitle">条件判断与循环</p>
+            <div class="hero-buttons">
+                <a href="data-types.html" class="btn btn-secondary">← 上一章</a>
+                <a href="functions.html" class="btn btn-primary">下一章：函数与模块 →</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">🔀 条件语句 (if-elif-else)</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 基本if语句
+age = 18
+if age >= 18:
+    print("成年人")
+
+# if-else语句
+score = 85
+if score >= 60:
+    print("及格")
+else:
+    print("不及格")
+
+# if-elif-else语句（多分支）
+score = 85
+if score >= 90:
+    print("优秀")
+elif score >= 80:
+    print("良好")
+elif score >= 60:
+    print("及格")
+else:
+    print("不及格")
+
+# 三元运算符
+age = 20
+status = "成年" if age >= 18 else "未成年"
+print(status)  # 成年</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔄 for循环</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 遍历列表
+fruits = ["apple", "banana", "orange"]
+for fruit in fruits:
+    print(fruit)
+
+# 使用range
+for i in range(5):      # 0, 1, 2, 3, 4
+    print(i)
+
+for i in range(1, 6):   # 1, 2, 3, 4, 5
+    print(i)
+
+for i in range(0, 10, 2):  # 0, 2, 4, 6, 8
+    print(i)
+
+# enumerate获取索引
+fruits = ["apple", "banana", "orange"]
+for index, fruit in enumerate(fruits):
+    print(f"索引{index}: {fruit}")
+
+# zip同时遍历多个列表
+names = ["张三", "李四", "王五"]
+ages = [18, 19, 20]
+for name, age in zip(names, ages):
+    print(f"{name}: {age}岁")</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔁 while循环</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 基本while循环
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# 无限循环（需要break）
+while True:
+    user_input = input("输入'q'退出: ")
+    if user_input == 'q':
+        break
+
+# break和continue
+for i in range(10):
+    if i == 3:
+        continue    # 跳过3
+    if i == 7:
+        break       # 到7时停止
+    print(i)
+# 输出: 0, 1, 2, 4, 5, 6</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">📋 控制结构总结</h2>
+            <div class="content-card">
+                <table class="data-table">
+                    <tr><th>结构</th><th>用途</th><th>关键字</th></tr>
+                    <tr><td>顺序结构</td><td>按顺序执行</td><td>无</td></tr>
+                    <tr><td>分支结构</td><td>条件判断</td><td>if, elif, else</td></tr>
+                    <tr><td>循环结构</td><td>重复执行</td><td>for, while</td></tr>
+                    <tr><td>跳转语句</td><td>控制循环</td><td>break, continue</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="data-types.html" class="btn btn-secondary">← 上一章：数据类型</a>
+            <a href="functions.html" class="btn btn-primary">下一章：函数与模块 →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Python基础学习网站 | NOAI备考指南</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

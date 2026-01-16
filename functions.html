@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数与模块 - Python基础学习网站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="八中logo.png" alt="八中logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="basics.html">基础语法</a></li>
+                <li><a href="data-types.html">数据类型</a></li>
+                <li><a href="control-flow.html">控制结构</a></li>
+                <li><a href="functions.html" class="active">函数与模块</a></li>
+                <li><a href="algorithms.html">常用算法</a></li>
+                <li><a href="exercises.html">练习题目</a></li>
+                <li><a href="requirements.html">考纲要求</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>函数与模块</h1>
+            <p class="subtitle">自定义函数与标准模块</p>
+            <div class="hero-buttons">
+                <a href="control-flow.html" class="btn btn-secondary">← 上一章</a>
+                <a href="algorithms.html" class="btn btn-primary">下一章：常用算法 →</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">⚙️ 自定义函数</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 定义函数
+def greet(name):
+    """问候函数"""
+    return f"Hello, {name}!"
+
+# 调用函数
+message = greet("Python")
+print(message)  # Hello, Python!
+
+# 带默认参数
+def power(base, exponent=2):
+    return base ** exponent
+
+print(power(3))     # 9
+print(power(2, 3))  # 8
+
+# 多个返回值（返回元组）
+def get_info():
+    return "张三", 18, "高一"
+
+name, age, grade = get_info()
+
+# 关键字参数
+def introduce(name, age, city="北京"):
+    print(f"我是{name}，{age}岁，来自{city}")
+
+introduce("张三", 18)
+introduce("李四", 19, "上海")
+
+# 可变参数
+def sum_all(*args):
+    return sum(args)
+
+print(sum_all(1, 2, 3, 4, 5))  # 15</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔧 内置函数</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 数学相关
+print(max([1, 5, 3]))        # 5
+print(min([1, 5, 3]))        # 1
+print(sum([1, 2, 3]))        # 6
+print(abs(-5))               # 5
+print(round(3.14159, 2))     # 3.14
+
+# 类型转换
+print(int("123"))            # 123
+print(float("3.14"))         # 3.14
+print(str(123))              # "123"
+print(list("abc"))           # ['a', 'b', 'c']
+
+# 序列操作
+print(len([1, 2, 3]))        # 3
+print(sorted([3, 1, 2]))     # [1, 2, 3]
+
+# 其他
+print(type(123))             # <class 'int'>
+print(isinstance(123, int))  # True</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">📦 标准模块</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># math模块
+import math
+print(math.pi)               # 3.14159...
+print(math.sqrt(16))         # 4.0
+print(math.factorial(5))     # 120
+
+# random模块
+import random
+print(random.randint(1, 10)) # 1-10随机整数
+print(random.choice([1, 2, 3]))  # 随机选择
+
+# os模块
+import os
+print(os.getcwd())          # 当前工作目录
+print(os.listdir('.'))      # 列出目录内容
+
+# sys模块
+import sys
+print(sys.version)          # Python版本
+
+# datetime模块
+from datetime import datetime
+now = datetime.now()
+print(now.strftime("%Y-%m-%d"))  # 格式化日期</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">📥 模块导入方式</h2>
+            <div class="content-card">
+                <div class="code-block">
+                    <pre><code># 方式1：导入整个模块
+import math
+print(math.pi)
+
+# 方式2：导入模块并重命名
+import numpy as np
+
+# 方式3：导入模块中的特定函数
+from random import randint
+print(randint(1, 10))
+
+# 方式4：导入多个函数
+from math import sin, cos, pi
+print(sin(pi))</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="control-flow.html" class="btn btn-secondary">← 上一章：控制结构</a>
+            <a href="algorithms.html" class="btn btn-primary">下一章：常用算法 →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Python基础学习网站 | NOAI备考指南</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

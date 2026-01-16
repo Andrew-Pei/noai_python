@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型 - Python基础学习网站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="八中logo.png" alt="八中logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="basics.html">基础语法</a></li>
+                <li><a href="data-types.html" class="active">数据类型</a></li>
+                <li><a href="control-flow.html">控制结构</a></li>
+                <li><a href="functions.html">函数与模块</a></li>
+                <li><a href="algorithms.html">常用算法</a></li>
+                <li><a href="exercises.html">练习题目</a></li>
+                <li><a href="requirements.html">考纲要求</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>数据类型</h1>
+            <p class="subtitle">字符串、列表、字典、元组</p>
+            <div class="hero-buttons">
+                <a href="basics.html" class="btn btn-secondary">← 上一章</a>
+                <a href="control-flow.html" class="btn btn-primary">下一章：控制结构 →</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">📝 字符串 (String)</h2>
+            <div class="content-card">
+                <p>字符串是不可变的字符序列，NOAI竞赛中常用于文本处理。</p>
+                <div class="code-block">
+                    <pre><code># 字符串创建
+str1 = "Hello"
+str2 = 'World'
+
+# 索引和切片
+s = "Python"
+print(s[0])        # P
+print(s[-1])       # n
+print(s[0:3])      # Pyt
+print(s[::-1])     # nohtyP - 反转
+
+# 常用方法
+print(s.upper())           # PYTHON
+print(s.lower())           # python
+print(s.strip())           # 去除空格
+print(s.split())           # 分割
+print(s.replace("P", "J")) # Jython</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">📋 列表 (List)</h2>
+            <div class="content-card">
+                <p>列表是可变的有序序列，NOAI竞赛中最常用的数据结构。</p>
+                <div class="code-block">
+                    <pre><code># 列表创建
+nums = [1, 2, 3, 4, 5]
+fruits = ["apple", "banana", "orange"]
+
+# 基本操作
+print(nums[0])          # 1
+print(nums[1:4])        # [2, 3, 4]
+print(len(nums))        # 5
+
+# 添加元素
+nums.append(6)          # 末尾添加
+nums.insert(0, 0)       # 插入
+
+# 删除元素
+nums.remove(3)          # 删除值
+nums.pop()              # 删除最后一个
+del nums[1]             # 删除索引
+
+# 列表推导式（NOAI常考）
+squared = [x**2 for x in [1, 2, 3, 4, 5]]
+# 结果: [1, 4, 9, 16, 25]
+
+# 排序
+nums.sort()             # 原地排序
+sorted_nums = sorted(nums)  # 返回新列表</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">📖 字典 (Dictionary)</h2>
+            <div class="content-card">
+                <p>字典是键值对的无序集合，常用于数据存储和查找。</p>
+                <div class="code-block">
+                    <pre><code># 字典创建
+student = {"name": "张三", "age": 18, "grade": "高一"}
+
+# 访问字典
+print(student["name"])    # 张三
+print(student.get("age")) # 18
+
+# 添加和修改
+student["school"] = "XX中学"  # 添加
+student["age"] = 19          # 修改
+
+# 删除
+del student["grade"]         # 删除键值对
+
+# 遍历字典
+for key, value in student.items():
+    print(f"{key}: {value}")
+
+# 字典方法
+print(student.keys())        # 所有键
+print(student.values())      # 所有值</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔢 元组 (Tuple)</h2>
+            <div class="content-card">
+                <p>元组是不可变的有序序列，常用于保护数据不被修改。</p>
+                <div class="code-block">
+                    <pre><code># 元组创建
+point = (3, 4)
+colors = ("red", "green", "blue")
+
+# 访问元组
+print(point[0])      # 3
+print(colors[1:3])   # ('green', 'blue')
+
+# 元组解包（重要！）
+x, y = point
+print(x, y)  # 3 4
+
+# 多变量赋值
+a, b, c = 1, 2, 3
+
+# 交换变量
+x, y = 10, 20
+x, y = y, x  # x=20, y=10
+
+# 元组与列表转换
+nums = [1, 2, 3]
+tuple_nums = tuple(nums)  # 转为元组
+list_nums = list(tuple_nums)  # 转为列表</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">📊 数据类型总结</h2>
+            <div class="content-card">
+                <table class="data-table">
+                    <tr><th>类型</th><th>是否可变</th><th>是否有序</th><th>符号</th></tr>
+                    <tr><td>字符串</td><td>不可变</td><td>有序</td><td>"" ''</td></tr>
+                    <tr><td>列表</td><td>可变</td><td>有序</td><td>[]</td></tr>
+                    <tr><td>元组</td><td>不可变</td><td>有序</td><td>()</td></tr>
+                    <tr><td>字典</td><td>可变</td><td>无序</td><td>{}</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="basics.html" class="btn btn-secondary">← 上一章：基础语法</a>
+            <a href="control-flow.html" class="btn btn-primary">下一章：控制结构 →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Python基础学习网站 | NOAI备考指南</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
